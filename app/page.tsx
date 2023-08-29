@@ -45,4 +45,4 @@ export default async function Home() {
   )
 }
 
-{/*double check why we get the error screen btw <3*/}
+{/*double check why we get the error screen btw <3*, we are @1:31:24*/}
