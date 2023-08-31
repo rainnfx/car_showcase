@@ -40,7 +40,7 @@ const CarDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className="relative w-full max-w-lg max-h-[90vh] overflow-y-auto transform rounded-2xl bg-white p-6 text-left shadow-xl transition-all flex flex-col gap-5">
+                <Dialog.Panel className="relative w-full max-w-lg max-h-[92vh] overflow-y-auto transform rounded-2xl bg-white p-6 text-left shadow-xl transition-all flex flex-col gap-5">
                   <button
                     type="button"
                     onClick={closeModal}
@@ -101,7 +101,7 @@ const CarDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => {
                       {car.make} {car.model}
                     </h2>
 
-                    <div className="mt-3 flex flex-wrap gap-4">
+                    <div className="mt-3 flex flex-wrap gap-4 capitalize">
                       {Object.entries(car).map(([key, value]) => (
                         <div
                           className="flex justify-between gap-5 w-full text-right"
@@ -128,4 +128,4 @@ const CarDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => {
 };
 
 export default CarDetails;
-    /*heya make sure to fix the scrollbar on the thing.*/
+/*heya make sure to fix the scrollbar on the thing.*/
