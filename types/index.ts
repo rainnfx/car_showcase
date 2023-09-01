@@ -29,3 +29,12 @@ export interface CarProps {
   transmission: string;
   year: number;
 }
+
+export interface FilterProps {
+      manufacturer: searchParams.manufacturer || "",
+    year: searchParams.year || 2022,
+    fuel: searchParams.fuel || "",
+    limit: searchParams.limit || 10,
+    model: searchParams.model || "",
+    {/* timestamp, 2:27:52 <3 */}
+}
