@@ -31,10 +31,9 @@ export interface CarProps {
 }
 
 export interface FilterProps {
-      manufacturer: searchParams.manufacturer || "",
-    year: searchParams.year || 2022,
-    fuel: searchParams.fuel || "",
-    limit: searchParams.limit || 10,
-    model: searchParams.model || "",
-    {/* timestamp, 2:27:52 <3 */}
+  manufacturer: string;
+  year: number;
+  fuel: string;
+  limit: number;
+  model: string;
 }
