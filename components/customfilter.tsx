@@ -2,38 +2,31 @@
 
 import { Fragment, useState } from "react";
 import Image from "next/image";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import { Listbox, Transition } from "@headlessui/react";
 import { CustomFilterProps } from "@/types";
+import { type } from "os";
+import { updateSearchParams } from "@/utils";
 
 const CustomFilter = ({ title, options }: CustomFilterProps) => {
   const router = useRouter();
   const [selected, setselected] = useState(options[0]);
 
-  const updateSearchParams = (type: string, value: string) => {
-    const searchParams = new URLSearchParams(window.location.search);
+  const handleUpdateParams = (e: { title: string; value: string }) => {
+    const newPathName = updateSearchParams(title, e.value.toLowerCase());
 
-    searchParams.set(type, value);
-
-    if (manufacturer) {
-      searchParams.set("manufacturer", manufacturer);
-    } else {
-      searchParams.delete("manufacturer");
-    }
-
-    const newPathname = `${
-      window.location.pathname
-    }?${searchParams.toString()}`;
-
-    router.push(newPathname);
-    {
-      /* timestamp: 2:47:51 */
-    }
+    router.push(newPathName);
   };
 
   return (
     <div className="w-fit">
-      <Listbox value={selected} onChange={(e) => setselected(e)}>
+      <Listbox
+        value={selected}
+        onChange={(e) => {
+          setselected(e);
+          handleUpdateParams(e);
+        }}
+      >
         <div className="relative w-fit z-10">
           <Listbox.Button className="custom-filter__btn">
             <span className="block truncate">{selected.title}</span>
